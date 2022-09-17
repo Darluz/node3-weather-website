@@ -117,9 +117,11 @@ app.listen(port, () => {// starting the server up indicating the port in which w
     console.log(`Server is up on port ${port}.`);
 }); // using ctrl + C in command line, we can quit the execution 
 
-// HEROKU
-/* - We run the command 'heroku create dluz-weather-application' to create the application in heroku
+// HEROKU configurations
+/* - We run the command 'heroku create dluz-weather-application' to create the application in heroku (the last variable is the name given to it)
    - package.json file was modified specifying the start script in order to tell heroku how to execute our app
    - We create the port const with an environmental variable for the heroku config port
    - The fetch url in our js/app.js to a shorter version /weather... without telling the localhost or anything in order to set an adaptative url (heroku or local) 
+   - Make a commit and push to github
+   - Make a 'git push heroku main' to push our changes to heroku site
 */
