@@ -1,0 +1,3 @@
+Anything in public it is meant to be served up as part of our express server.
+In this case we are storing everything related to static pages. 
+Index.html is replace in the following lessons with hbs content in 'views' folder as well as any other static file in the public folder.
