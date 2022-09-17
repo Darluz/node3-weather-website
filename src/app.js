@@ -8,6 +8,7 @@ console.log(__dirname); // gives the route information about where the file live
 console.log(__filename);// gives the route information about the actual file
 
 const app = express(); // here we are creating our express application
+const port = process.env.PORT || 3000 // value added when working with heroku, whice sets enviromental variables (if the application is ran locally, the 3000 port number will be used)
 
 // DEFINE PATHS FOR EXPRESS CONFIG
 const publicDirectoryPath = path.join(__dirname, '../public'); // using the path module and function join to normalize the introduced path as we were writing in the command line
@@ -112,6 +113,13 @@ app.get('*', (req, res) => { // * is a wild card that express provides to match 
     })
 }) // this needs to come last (be the last app.get), to correctly compose the routes that express matches during a search (every call is tried against every route in the order specified)
  
-app.listen(3000, () => {// starting the server up indicating the port in which will be deployed and the function to execute when the server initiate
-    console.log('Server is up on port 3000.');
+app.listen(port, () => {// starting the server up indicating the port in which will be deployed and the function to execute when the server initiate
+    console.log(`Server is up on port ${port}.`);
 }); // using ctrl + C in command line, we can quit the execution 
+
+// HEROKU
+/* - We run the command 'heroku create dluz-weather-application' to create the application in heroku
+   - package.json file was modified specifying the start script in order to tell heroku how to execute our app
+   - We create the port const with an environmental variable for the heroku config port
+   - The fetch url in our js/app.js to a shorter version /weather... without telling the localhost or anything in order to set an adaptative url (heroku or local) 
+*/
